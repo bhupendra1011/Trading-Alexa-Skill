@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 /*URL TO ACCESS MONGODB */
 const mongoUri =
-  "mongodb+srv://admin:pass@cluster0.e1ifg.mongodb.net/leads_db?retryWrites=true&w=majority";
+  "mongodb+srv://admin:pass@cluster0.e1ifg.mongodb.net/leads_db?retryWrites=true&w=majority&ssl=true";
 
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
