@@ -34,14 +34,14 @@ app.get("/", (req, res) => {
 });
 
 app.post("/openaccount", async (req, res) => {
-  const { email, contact_number, contactLead_on } = req.body;
-  if (!email || !contact_number)
+  const { name, contact_number, contactLead_on } = req.body;
+  if (!name || !contact_number)
     return res.status(422).send({
       error:
-        "You must provide email id  and contact number for account creation",
+        "You must provide your name  and contact number for account creation",
     });
   try {
-    const user = new User({ email, contact_number, contactLead_on });
+    const user = new User({ name, contact_number, contactLead_on });
     await user.save();
     res.send({
       suceess:
