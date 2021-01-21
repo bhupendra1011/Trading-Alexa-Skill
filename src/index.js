@@ -43,9 +43,10 @@ app.post("/openaccount", async (req, res) => {
   try {
     const user = new User({ email, contact_number, contactLead_on });
     await user.save();
-    res.send(
-      "Thank you for your interest , to complete account verification process, our team would contact you soon."
-    );
+    res.send({
+      suceess:
+        "Thank you for your interest , to complete account verification process, our team would contact you soon.",
+    });
   } catch (err) {
     return res.status(422).send({ error: err.message });
   }
