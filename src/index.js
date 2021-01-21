@@ -28,7 +28,9 @@ mongoose.connection.on("error", (err) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("welcome to open account api");
+  res.send(
+    "welcome to open account api ,this is for lead generation of new users on trading platform"
+  );
 });
 
 app.post("/openaccount", async (req, res) => {
