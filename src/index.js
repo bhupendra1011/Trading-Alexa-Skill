@@ -3,6 +3,7 @@ require("./models/User");
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const port = process.env.PORT || 3000;
 
 const app = express();
 
@@ -26,6 +27,10 @@ mongoose.connection.on("error", (err) => {
   console.error("Error in connecting to mongo DB ", err);
 });
 
+app.get("/", (req, res) => {
+  res.send("welcome to open account api");
+});
+
 app.post("/openaccount", async (req, res) => {
   const { email, contact_number, contactLead_on } = req.body;
   if (!email || !contact_number)
@@ -44,6 +49,6 @@ app.post("/openaccount", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("listening to port 3000");
+app.listen(port, () => {
+  console.log(`listening to port 3000 ${port}`);
 });
